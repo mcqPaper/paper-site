@@ -1,8 +1,8 @@
 version: "3.8"
 services:
-  mongodb:
+  paper-site-mongodb:
     image: mongo:latest
-    container_name: mongodb
+    container_name: paper-site-mongodb
     restart: always
     ports:
       - 27017:27017
@@ -14,9 +14,9 @@ services:
       - MONGO_INITDB_ROOT_PASSWORD=PsswrdPaper_5Kght4rgHAdmin
       - MONGO_INITDB_DATABASE=paperDev
 
-  nginx-proxy:
+  paper-site-nginx-proxy:
     image: jwilder/nginx-proxy
-    container_name: nginx-proxy
+    container_name: paper-site-nginx-proxy
     ports:
       - "80:80"
       - "443:443"
@@ -26,9 +26,9 @@ services:
       - letsencrypt-vhost-d:/etc/nginx/vhost.d
       - letsencrypt-html:/usr/share/nginx/html
 
-  letsencrypt-proxy:
+  paper-site-letsencrypt-proxy:
     image: jrcs/letsencrypt-nginx-proxy-companion
-    container_name: letsencrypt-proxy
+    container_name: paper-site-letsencrypt-proxy
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock:ro
       - letsencrypt-certs:/etc/nginx/certs
