@@ -17,4 +17,4 @@ ENV HOST=0.0.0.0 PORT=8085
 
 EXPOSE ${PORT}
 
-CMD bash run.sh
+CMD node server.sh
