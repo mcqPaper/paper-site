@@ -50,6 +50,7 @@ services:
     environment:
       LETSENCRYPT_HOST: blog.ccnextgen.online
       VIRTUAL_HOST: blog.ccnextgen.online
+      VIRTUAL_PORT: 8085
 
   paper-site-nodejs:
     build: ./paper-site-nodejs
