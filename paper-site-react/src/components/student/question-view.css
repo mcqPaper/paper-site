@@ -1,0 +1,10 @@
+.questionView {
+  position: relative;
+  top: 0vh;
+  left: 0vw;
+  width: 71vw;
+  height: 86vh;
+  background-color: blue;
+  margin: 0;
+  border-radius: 20px;
+}

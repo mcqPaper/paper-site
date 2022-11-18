@@ -1,0 +1,18 @@
+.paperView {
+  position: relative;
+  top: 0vh;
+  left: 0vw;
+  width: 100vw;
+  height: 100vh;
+}
+
+.questionplus {
+  position: relative;
+  float: right;
+  display: inline-block;
+  top: 0vh;
+  left: 0vw;
+  width: 71vw;
+  height: 96vh;
+  margin: 2vh 2vh 0 2vh;
+}

@@ -1,0 +1,12 @@
+.questionNavigator {
+  position: relative;
+  float: left;
+  display: inline-block;
+  top: 0vh;
+  left: 0vw;
+  width: 21vw;
+  height: 96vh;
+  background-color: chartreuse;
+  border-radius: 20px;
+  margin: 2vh 0 0 2vh;
+}

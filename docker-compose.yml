@@ -1,0 +1,79 @@
+version: "3.8"
+services:
+  mongodb:
+    image: mongo:latest
+    container_name: mongodb
+    restart: always
+    ports:
+      - 27017:27017
+    volumes:
+      - ./mongoData:/data/db
+      - ./paper-site-mongo/mongo-init.js:/docker-entrypoint-initdb.d/mongo-init.js
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=admin
+      - MONGO_INITDB_ROOT_PASSWORD=PsswrdPaper_5Kght4rgHAdmin
+      - MONGO_INITDB_DATABASE=paperDev
+
+  nginx-proxy:
+    image: jwilder/nginx-proxy
+    container_name: nginx-proxy
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - /var/run/docker.sock:/tmp/docker.sock:ro
+      - letsencrypt-certs:/etc/nginx/certs
+      - letsencrypt-vhost-d:/etc/nginx/vhost.d
+      - letsencrypt-html:/usr/share/nginx/html
+
+  letsencrypt-proxy:
+    image: jrcs/letsencrypt-nginx-proxy-companion
+    container_name: letsencrypt-proxy
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+      - letsencrypt-certs:/etc/nginx/certs
+      - letsencrypt-vhost-d:/etc/nginx/vhost.d
+      - letsencrypt-html:/usr/share/nginx/html
+    environment:
+      - NGINX_PROXY_CONTAINER=nginx-proxy
+
+  paper-site-nodejs:
+    build: ./paper-site-nodejs
+    container_name: paper-site-nodejs
+    restart: always
+    ports:
+      - 8080
+    volumes:
+      - ./paper-site-nodejs/logs:/home/node/app/logs
+    depends_on:
+      - mongodb
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    env_file:
+      - ./.env
+    environment:
+      LETSENCRYPT_HOST: blog.ccnextgen.online
+      VIRTUAL_HOST: blog.ccnextgen.online
+      VIRTUAL_PATH: /api
+      LETSENCRYPT_PATH: /api
+  
+  paper-site-react:
+    build: ./paper-site-react
+    container_name: paper-site-react
+    restart: always
+    ports:
+      - 8085
+    depends_on:
+      - paper-site-nodejs
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    env_file:
+      - ./.env
+    environment:
+      LETSENCRYPT_HOST: blog.ccnextgen.online
+      VIRTUAL_HOST: blog.ccnextgen.online
+
+volumes:
+  letsencrypt-certs:
+  letsencrypt-vhost-d:
+  letsencrypt-html:

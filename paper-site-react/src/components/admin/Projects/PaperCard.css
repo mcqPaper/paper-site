@@ -1,0 +1,26 @@
+.class-container {
+  border: 2px solid gray;
+  border-radius: 10px;
+  margin-top: 20px;
+}
+
+table {
+  width: 100%;
+
+}
+
+tr {
+  padding: 100px 50px 100px 50px;
+}
+
+.paper-card {
+  cursor: pointer;
+}
+
+.collapse-card {
+  cursor: pointer;
+}
+
+.goToQuestions {
+  margin: 5px;
+}

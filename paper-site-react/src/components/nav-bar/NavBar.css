@@ -1,0 +1,33 @@
+li {
+  text-align: center;
+  list-style: none;
+  color: azure;
+  height: 75px;
+  vertical-align: middle;
+  border: solid 2px slategray;
+  border-radius: 6px;
+  padding-top: 20px;
+  margin-top: 10px !important;
+}
+
+ul {
+  padding-top: 10px !important;
+  padding-left: 0 !important;
+  padding-right: 5px;
+  cursor: pointer;
+}
+
+.nav-bar-container {
+  width: 5%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  padding-left: 0;
+  background-color: rgb(4, 38, 11);
+  height: 100%;
+}
+
+
+li:hover {
+  background-color: yellow !important;
+}

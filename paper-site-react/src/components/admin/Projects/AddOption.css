@@ -1,0 +1,49 @@
+.outerBorder{
+  position: relative;
+  width: 90%;
+  top:7.5%;
+  height:85%;
+  left: 5%;
+  background-color:white !important;
+  border-radius: 20px;
+  font-family: "Robot sans-serif" !important;
+
+}
+
+.addContent{
+  position: relative;
+  width: 50%;
+  top: 0%;
+  height:100%;
+  left: 0%;
+  padding-left: 5%;
+  padding-right: 5%;
+  color: aliceblue;
+}
+
+.addContentLabel{
+color: black;
+}
+.paperTitle{
+ position: relative;
+ top: 100%;
+ font-size: 20px;
+ color:black !important;
+
+}
+
+.paperInput{
+  position: relative;
+  top:10%;
+}
+
+
+.paperCreateBtn {
+  position: absolute;
+  bottom:  5%;
+  color: black;
+  text-align: center;
+  border-radius: 10px;
+  padding: 5px 10px 5px 10px;
+  left: 40%;
+}

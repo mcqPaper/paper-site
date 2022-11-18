@@ -1,0 +1,15 @@
+{
+  "USED_EMAIL": "Email is already used",
+  "TOKEN_EXPIRED": "Token has expired",
+  "JWT_GENERATE_ERR": "Error occur when generating JWT web token",
+  "TOO_SHORT_PASSWORD": "Password is too short",
+  "INVALID_EMAIL": "Enter a valid email address (e.g. myname@domain.com)",
+  "INVALID_PASSWORD": {
+    "PREFIX": "Password must contain ",
+    "NO_NUMBER": "a number",
+    "NO_LOWERCASE": "a lower case letter",
+    "NO_UPPERCASE": "a upper case letter",
+    "NO_SPECIAL_CHARACTER": "a special character(!, @, #, $)"
+  },
+  "INVALID_LOGIN": "Invalid username and/or password."
+}

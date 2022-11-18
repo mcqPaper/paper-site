@@ -1,0 +1,6 @@
+export const TIME_CONVERSIONS = {
+  HOURS_TO_SECONDS: 3600,
+  DAYS_TO_SECONDS: 86400
+
+}
+
