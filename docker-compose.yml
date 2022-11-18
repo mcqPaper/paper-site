@@ -37,6 +37,22 @@ services:
     environment:
       - NGINX_PROXY_CONTAINER=paper-site-nginx-proxy
 
+  paper-site-react:
+    build: ./paper-site-react
+    container_name: paper-site-react
+    restart: always
+    ports:
+      - 8085
+    depends_on:
+      - paper-site-nodejs
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    env_file:
+      - ./.env
+    environment:
+      LETSENCRYPT_HOST: blog.ccnextgen.online
+      VIRTUAL_HOST: blog.ccnextgen.online
+
   paper-site-nodejs:
     build: ./paper-site-nodejs
     container_name: paper-site-nodejs
@@ -57,21 +73,7 @@ services:
       VIRTUAL_PATH: /api
       LETSENCRYPT_PATH: /api
   
-  paper-site-react:
-    build: ./paper-site-react
-    container_name: paper-site-react
-    restart: always
-    ports:
-      - 8085
-    depends_on:
-      - paper-site-nodejs
-    extra_hosts:
-      - "host.docker.internal:host-gateway"
-    env_file:
-      - ./.env
-    environment:
-      LETSENCRYPT_HOST: blog.ccnextgen.online
-      VIRTUAL_HOST: blog.ccnextgen.online
+  
 
 volumes:
   letsencrypt-certs:
