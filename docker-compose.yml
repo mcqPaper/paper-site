@@ -42,7 +42,7 @@ services:
     container_name: paper-site-react
     restart: always
     ports:
-      - 8085:8085
+      - 8085
     extra_hosts:
       - "host.docker.internal:host-gateway"
     env_file:
@@ -50,7 +50,6 @@ services:
     environment:
       LETSENCRYPT_HOST: blog.ccnextgen.online
       VIRTUAL_HOST: blog.ccnextgen.online
-      VIRTUAL_PORT: 8085
 
   paper-site-nodejs:
     build: ./paper-site-nodejs
