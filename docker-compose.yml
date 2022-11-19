@@ -50,28 +50,26 @@ services:
     environment:
       LETSENCRYPT_HOST: blog.ccnextgen.online
       VIRTUAL_HOST: blog.ccnextgen.online
-      VIRTUAL_PATH: /*
-      LETSENCRYPT_PATH: /*
 
-  paper-site-nodejs:
-    build: ./paper-site-nodejs
-    container_name: paper-site-nodejs
-    restart: always
-    ports:
-      - 8080
-    volumes:
-      - ./paper-site-nodejs/logs:/home/node/app/logs
-    depends_on:
-      - paper-site-mongodb
-    extra_hosts:
-      - "host.docker.internal:host-gateway"
-    env_file:
-      - ./.env
-    environment:
-      LETSENCRYPT_HOST: blog.ccnextgen.online
-      VIRTUAL_HOST: blog.ccnextgen.online
-      VIRTUAL_PATH: /api
-      LETSENCRYPT_PATH: /api
+  # paper-site-nodejs:
+  #   build: ./paper-site-nodejs
+  #   container_name: paper-site-nodejs
+  #   restart: always
+  #   ports:
+  #     - 8080
+  #   volumes:
+  #     - ./paper-site-nodejs/logs:/home/node/app/logs
+  #   depends_on:
+  #     - paper-site-mongodb
+  #   extra_hosts:
+  #     - "host.docker.internal:host-gateway"
+  #   env_file:
+  #     - ./.env
+  #   environment:
+  #     LETSENCRYPT_HOST: blog.ccnextgen.online
+  #     VIRTUAL_HOST: blog.ccnextgen.online
+  #     VIRTUAL_PATH: /api
+  #     LETSENCRYPT_PATH: /api
   
   
 
