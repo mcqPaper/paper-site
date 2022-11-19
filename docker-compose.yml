@@ -1,18 +1,18 @@
 version: "3.8"
 services:
-  paper-site-mongodb:
-    image: mongo:latest
-    container_name: paper-site-mongodb
-    restart: always
-    ports:
-      - 27017:27017
-    volumes:
-      - ./mongoData:/data/db
-      - ./paper-site-mongo/mongo-init.js:/docker-entrypoint-initdb.d/mongo-init.js
-    environment:
-      - MONGO_INITDB_ROOT_USERNAME=admin
-      - MONGO_INITDB_ROOT_PASSWORD=PsswrdPaper_5Kght4rgHAdmin
-      - MONGO_INITDB_DATABASE=paperDev
+  # paper-site-mongodb:
+  #   image: mongo:latest
+  #   container_name: paper-site-mongodb
+  #   restart: always
+  #   ports:
+  #     - 27017:27017
+  #   volumes:
+  #     - ./mongoData:/data/db
+  #     - ./paper-site-mongo/mongo-init.js:/docker-entrypoint-initdb.d/mongo-init.js
+  #   environment:
+  #     - MONGO_INITDB_ROOT_USERNAME=admin
+  #     - MONGO_INITDB_ROOT_PASSWORD=PsswrdPaper_5Kght4rgHAdmin
+  #     - MONGO_INITDB_DATABASE=paperDev
 
   paper-site-nginx-proxy:
     image: jwilder/nginx-proxy
@@ -51,25 +51,25 @@ services:
       LETSENCRYPT_HOST: blog.ccnextgen.online
       VIRTUAL_HOST: blog.ccnextgen.online
 
-  paper-site-nodejs:
-    build: ./paper-site-nodejs
-    container_name: paper-site-nodejs
-    restart: always
-    ports:
-      - 8080
-    volumes:
-      - ./paper-site-nodejs/logs:/home/node/app/logs
-    depends_on:
-      - paper-site-mongodb
-    extra_hosts:
-      - "host.docker.internal:host-gateway"
-    env_file:
-      - ./.env
-    environment:
-      LETSENCRYPT_HOST: blog.ccnextgen.online
-      VIRTUAL_HOST: blog.ccnextgen.online
-      VIRTUAL_PATH: /api
-      LETSENCRYPT_PATH: /api
+  # paper-site-nodejs:
+  #   build: ./paper-site-nodejs
+  #   container_name: paper-site-nodejs
+  #   restart: always
+  #   ports:
+  #     - 8080
+  #   volumes:
+  #     - ./paper-site-nodejs/logs:/home/node/app/logs
+  #   depends_on:
+  #     - paper-site-mongodb
+  #   extra_hosts:
+  #     - "host.docker.internal:host-gateway"
+  #   env_file:
+  #     - ./.env
+  #   environment:
+  #     LETSENCRYPT_HOST: blog.ccnextgen.online
+  #     VIRTUAL_HOST: blog.ccnextgen.online
+  #     VIRTUAL_PATH: /api
+  #     LETSENCRYPT_PATH: /api
   
   
 
