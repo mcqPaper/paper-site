@@ -50,6 +50,8 @@ services:
     environment:
       LETSENCRYPT_HOST: blog.ccnextgen.online
       VIRTUAL_HOST: blog.ccnextgen.online
+      VIRTUAL_PATH: /*
+      LETSENCRYPT_PATH: /*
 
   paper-site-nodejs:
     build: ./paper-site-nodejs
